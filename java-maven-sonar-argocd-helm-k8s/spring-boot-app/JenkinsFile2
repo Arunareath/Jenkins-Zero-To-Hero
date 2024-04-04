@@ -1,6 +1,6 @@
 def SONAR_URL = "http://3.30.222.183:9000"
 def DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
-def GIT_REPO-NAME = "Jenkins-Zero-To-Hero"
+def GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
 def GIT_USERNAME = "arunareath"
 
 def dockerImage
@@ -48,7 +48,7 @@ node {
                 sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                 git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                 git commit -m "Update deployment image and version ${BUILD_NUMBER}"
-                git push https://${GITHUB_TOKEN}@github.com/${GIT_USERNAME}/${GIT_REPO-NAME} HEAD:main
+                git push https://${GITHUB_TOKEN}@github.com/${GIT_USERNAME}/${GIT_REPO_NAME} HEAD:main
             """
         }
     }
