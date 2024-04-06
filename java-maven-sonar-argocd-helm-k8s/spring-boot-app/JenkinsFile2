@@ -1,5 +1,5 @@
 def SONAR_URL = "http://3.30.222.183:9000"
-def DOCKER_IMAGE = "abhishekf5/ultimate-cicd:${BUILD_NUMBER}"
+def DOCKER_IMAGE = "arunareath/my-repo:${BUILD_NUMBER}"
 def GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
 def GIT_USERNAME = "arunareath"
 
