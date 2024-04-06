@@ -9,7 +9,7 @@ def GITHUB_TOKEN = credentials('github')
 
 node {
 
-    docker.image('abhishekf5/maven-abhishek-docker-agent:v1').withRun('--entrypoint /usr/local/bin/mvn-entrypoint.sh', 'args --user root -v /var/run/docker.sock:/var/run/docker.sock'){
+     docker.image('abhishekf5/maven-abhishek-docker-agent:v1').inside("--rm --user root -v /var/run/docker.sock:/var/run/docker.sock") { c -> 
 
         stage('Checkout'){
             echo'passed'
