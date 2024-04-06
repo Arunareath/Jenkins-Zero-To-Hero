@@ -48,6 +48,7 @@ node {
                 sh """
                     git config user.email "arunareath@gmail.com"
                     git config user.name "arunareath"
+                    git chechout -b test
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
