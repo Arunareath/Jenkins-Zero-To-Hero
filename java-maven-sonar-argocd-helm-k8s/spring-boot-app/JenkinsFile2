@@ -46,6 +46,7 @@ node {
         stage('Update Deployment File'){
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]){
                 sh """
+                    rm -rf target/
                     git config user.email "arunareath@gmail.com"
                     git config user.name "arunareath"
                     git checkout -b test
