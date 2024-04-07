@@ -54,7 +54,7 @@ node {
                    git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                    git add .
                    git commit -m "Update deployment image and version \${BUILD_NUMBER}"
-                   git push https://\${GITHUB_TOKEN}@github.com/\${GIT_USERNAME}/\${GIT_REPO_NAME} HEAD:main
+                   git push https://${GITHUB_TOKEN}@github.com/${GIT_USERNAME}/${GIT_REPO_NAME} HEAD:main
               """
             }
         }
