@@ -46,13 +46,13 @@ node {
         stage('Update Deployment File'){
             withCredentials([string(credentialsId: 'github', variable: 'GITHUB_TOKEN')]){
                 sh """
-                    rm -rf target/
                     git config user.email "arunareath@gmail.com"
                     git config user.name "arunareath"
                     git checkout -b test-${BUILD_NUMBER}
                     BUILD_NUMBER=${BUILD_NUMBER}
                     sed -i "s/replaceImageTag/${BUILD_NUMBER}/g" java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
                     git add java-maven-sonar-argocd-helm-k8s/spring-boot-app-manifests/deployment.yml
+                    git add target/
                     git commit -m "Update deployment image and version ${BUILD_NUMBER}"
                     git push https://${GITHUB_TOKEN}@github.com/${GIT_USERNAME}/${GIT_REPO_NAME} HEAD:main
                 """
